@@ -90,7 +90,7 @@ class _QrReaderViewState extends State<QrReaderView> {
         ].toSet(),
       );
     } else {
-      return Text('平台暂不支持');
+      return Text('The current platform does not support');
     }
   }
 

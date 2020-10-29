@@ -5,7 +5,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:super_qr_reader/src/qrcode_reader_view.dart';
 
 class ScanView extends StatefulWidget {
-  ScanView({Key key}) : super(key: key);
+  final double scanBoxRatio;
+  final Color boxLineColor;
+  final Widget helpWidget;
+
+  ScanView({Key key,
+    this.boxLineColor = Colors.cyanAccent,
+    this.helpWidget,
+    this.scanBoxRatio = 0.85,
+  }) : super(key: key);
 
   @override
   _ScanViewState createState() => new _ScanViewState();
@@ -13,6 +21,7 @@ class ScanView extends StatefulWidget {
 
 class _ScanViewState extends State<ScanView> {
   GlobalKey<QrcodeReaderViewState> _key = GlobalKey();
+
   @override
   void initState() {
     super.initState();
@@ -28,6 +37,9 @@ class _ScanViewState extends State<ScanView> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
         ),
+        scanBoxRatio: widget.scanBoxRatio,
+        boxLineColor: widget.boxLineColor,
+        helpWidget: widget.helpWidget,
       ),
     );
   }
